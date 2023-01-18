@@ -1,3 +1,24 @@
+<?php
+
+session_start();
+
+require 'functions.php';
+
+if (isset($_POST['register'])) {
+    if (registrasi($_POST) > 0) {
+        $_SESSION['login'] = true;
+        $_SESSION['username'] = $_POST['username'];
+        $_SESSION['loginIsSuccess'] = true;
+
+        header('Location: /web-girlbox/dashboard.php');
+    } else {
+        echo mysqli_error($conn);
+
+        header('Location: /web-girlbox/');
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,7 +55,7 @@
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        <form class="login-form" autocomplete="off">
+        <form class="login-form" action="" method="POST" autocomplete="off">
           <img src="src/assets/logo.svg" alt="logo" class="logo-login" />
           <h1 class="login-title">Create New Account</h1>
           <div class="mb-3">
@@ -73,9 +94,8 @@
           <p class="message">
             Have an account?
             <a
-              data-bs-toggle="modal"
               style="cursor: pointer;"
-              data-bs-target="#loginModal"
+              href="/web-girlbox/login.php"
             >
               Log In
             </a>

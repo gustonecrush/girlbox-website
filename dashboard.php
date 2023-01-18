@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION['login'])) {
-    header('Location: /web-olshop/index.php');
+    header('Location: /web-girlbox/');
     exit();
 }
 ?>
@@ -36,19 +36,19 @@ if (!isset($_SESSION['login'])) {
 
     <style>
         .bg-gradient-primary {
-        background: rgba(31, 31, 31);
+        background: #132039;
         background-size: cover;
         }
 
         .btn-primary {
         color: #fff;
-        background-color: rgba(31, 31, 31);
+         background: #0A9F82;
         border: none;
         }
 
         .btn-primary:hover {
         color: #fff;
-        background-color: rgba(31, 31, 31, 0.9);
+        background-color: #0A9F82;
         }
 
         * {
@@ -74,7 +74,7 @@ if (!isset($_SESSION['login'])) {
                             title: 'Login is success',
                             text: 'Enjoy your shopping!',
                             icon: 'success',
-                            confirmButtonColor: '#1f1f1f'
+                            confirmButtonColor: '#0A9F82'
                         })
                     </script>
         ";
@@ -87,13 +87,13 @@ if (!isset($_SESSION['login'])) {
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <img src="src/assets/logo_light.svg" style="width: 50px; margin: 20px auto 0 auto;" />
+            <img src="src/assets/logo.svg" style="width: 50px; margin: 20px auto 0 auto;" />
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div> -->
-                <div class="sidebar-brand-text mx-3">Totebag Shop</div>
+                <div class="sidebar-brand-text mx-3">Girlbox</div>
             </a>
 
             <!-- Divider -->
@@ -202,7 +202,7 @@ if (!isset($_SESSION['login'])) {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Totebag Shop 2023</span>
+                        <span>Copyright &copy; Girlbox 2023</span>
                     </div>
                 </div>
             </footer>
@@ -233,7 +233,7 @@ if (!isset($_SESSION['login'])) {
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/web-olshop/functions/logout.php">Logout</a>
+                    <a class="btn btn-primary" href="/web-girlbox/logout.php">Logout</a>
                 </div>
             </div>
         </div>

@@ -12,6 +12,7 @@
 a {
   text-decoration: none;
   cursor: pointer;
+  color: #132039;
 }
 
 /* CSS BOOTSTRAP RESET */
@@ -38,11 +39,15 @@ a {
   background: #83d987;
   border-radius: 4px;
   padding: 10px 25px;
+  color: #132039 !important;
+}
+
+.btn-custom:hover .btn-custom-link {
   color: #132039;
 }
 
-.btn-custom .btn-custom-link {
-  color: #132039;
+a:hover {
+  color: #132039 !important;
 }
 
 /* MAIN */
@@ -55,7 +60,7 @@ a {
 .hero__section {
   background: #0f1837;
   height: 100vh;
-  padding: 25vh 0 10vh 0;
+  padding: 20vh 0 10vh 0;
   position: relative;
   overflow: hidden;
 }
@@ -93,7 +98,7 @@ a {
   height: 500px;
   position: absolute;
   right: 5rem;
-  top: 9rem;
+  top: 6rem;
 }
 
 /* ABOUT SECTION */

@@ -1,3 +1,8 @@
+<?php
+
+session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,6 +32,23 @@
     <title>Girlbox</title>
   </head>
   <body>
+
+  <?php if ($_SESSION['logoutIsSuccess']) {
+      echo "
+        <script>
+                        Swal.fire({
+                            title: 'Logout is success',
+                            text: 'Thanks for shopping!',
+                            icon: 'success',
+                            confirmButtonColor: '#0A9F82'
+                        })
+                    </script>
+        ";
+      $_SESSION['logoutIsSuccess'] = false;
+      $_SESSION = [];
+      session_destroy();
+  } ?>
+
     <!-- ====================== NAV ====================== -->
     <nav class="navbar navbar-expand-lg fixed-top bg-light py-3">
       <div class="container">
@@ -58,7 +80,7 @@
         </div>
 
         <div class="btn-custom">
-          <a class="btn-custom-link">Log In</a>
+          <a href="/web-girlbox/login.php">Log In</a>
         </div>
       </div>
     </nav>
