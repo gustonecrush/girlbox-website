@@ -28,41 +28,28 @@
     <title>Girlbox</title>
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-lg fixed-top bg-light py-4 flex flex-row justify-content-between"
-    >
+    <!-- ====================== NAV ====================== -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-light py-4">
       <div class="container">
         <!-- Logo Section -->
         <a class="navbar-brand" href="#">
           <img src="src/assets/logo.svg" alt="Olshop's Logo" />
         </a>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item me-3">
+        <div class="justify-content-center">
+          <ul class="nav mb-2 mb-lg-0">
+            <li class="nav-item me-2">
               <a class="nav-link active" aria-current="page" href="/web-olshop">
                 Home
               </a>
             </li>
-            <li class="nav-item me-3">
+            <li class="nav-item me-2">
               <a class="nav-link" href="#">Featured</a>
             </li>
-            <li class="nav-item me-3">
+            <li class="nav-item me-2">
               <a class="nav-link" href="/web-olshop/about.php">About</a>
             </li>
-            <li class="nav-item me-3">
+            <li class="nav-item me-2">
               <a class="nav-link" href="#">Catalog</a>
             </li>
             <li class="nav-item me-4">
@@ -70,12 +57,143 @@
             </li>
           </ul>
         </div>
-        
+
         <div class="btn-custom">
           <a class="btn-custom-link">Log In</a>
         </div>
       </div>
     </nav>
+
+    <!-- ====================== MAIN ====================== -->
+    <main class="main">
+      <!-- ====================== HERO SECTION ====================== -->
+      <section class="hero__section">
+        <article
+          class="container hero-content d-flex flex-column"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
+          <h1 class="hero-title">
+            Discover Your
+            <br />
+            Own Girl Stuff
+            <br />
+            Easy and Aeshtetic
+          </h1>
+          <p class="hero-desc">
+            Exploring your interest by finding the match stuff
+            <br />
+            for your needs that will make you shine
+          </p>
+        </article>
+        <img
+          src="src/assets/union_decoration.png"
+          alt="decoration"
+          class="hero-decoration"
+        />
+        <img
+          src="src/assets/hero-picture.png"
+          alt="decoration"
+          class="hero-girl-decoration"
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        />
+      </section>
+
+      <!-- ====================== PRODUCTS SECTION ====================== -->
+      <section class="about__section">
+        <article
+          class="container about-content d-flex flex-row justify-content-between align-items-center"
+        >
+          <h2 class="about-title">
+            You're Probably
+            <br />
+            Gonna Love These
+          </h2>
+
+          <a href="" class="about-link">VIEW ALL RECOMMENDATION</a>
+        </article>
+
+        <aritcle
+          class="products-list d-flex flex-row flex-wrap align-items-center justify-content-evenly mt-3"
+        >
+          <div
+            class="product d-flex flex-column"
+            data-aos="zoom-in-up"
+            data-aos-duration="500"
+          >
+            <span class="product-img">
+              <img src="src/assets/products/pic-1.png" class="" />
+            </span>
+            <div
+              class="d-flex flex-row justify-content-between align-items-center"
+            >
+              <span>
+                <h1>MILLIE LANYARD MAROON</h1>
+                <p>Vegan Leather</p>
+              </span>
+              <span>IDR 149,000</span>
+            </div>
+          </div>
+          <div
+            class="product d-flex flex-column"
+            data-aos="zoom-in-up"
+            data-aos-duration="1000"
+          >
+            <span class="product-img">
+              <img src="src/assets/products/pic-2.png" class="" />
+            </span>
+            <div
+              class="d-flex flex-row justify-content-between align-items-center"
+            >
+              <span>
+                <h1>MILLIE LANYARD SAGE GREEN</h1>
+                <p>Vegan Leather</p>
+              </span>
+              <span>IDR 149,000</span>
+            </div>
+          </div>
+
+          <div
+            class="product d-flex flex-column"
+            data-aos="zoom-in-up"
+            data-aos-duration="1500"
+          >
+            <span class="product-img">
+              <img src="src/assets/products/pic-3.png" class="" />
+            </span>
+            <div
+              class="d-flex flex-row justify-content-between align-items-center"
+            >
+              <span>
+                <h1>MILLIE LANYARD LATTE</h1>
+                <p>Vegan Leather</p>
+              </span>
+              <span>IDR 149,000</span>
+            </div>
+          </div>
+
+          <div
+            class="product d-flex flex-column"
+            data-aos="zoom-in-up"
+            data-aos-duration="2000"
+          >
+            <span class="product-img">
+              <img src="src/assets/products/pic.png" class="" />
+            </span>
+            <div
+              class="d-flex flex-row justify-content-between align-items-center"
+            >
+              <span>
+                <h1>MILLIE LANYARD BLACK</h1>
+                <p>Vegan Leather</p>
+              </span>
+              <span>IDR 149,000</span>
+            </div>
+          </div>
+        </aritcle>
+      </section>
+    </main>
 
     <!-- ====================== BOOTSTRAP JS ====================== -->
     <script
@@ -91,7 +209,6 @@
 
     <!-- ====================== AOS JS ====================== -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <!-- ====================== INTERNAL JS ====================== -->
     <script>
       AOS.init()

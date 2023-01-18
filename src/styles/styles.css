@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
 /* PRESET */
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,34 +10,136 @@
 }
 
 a {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* CSS BOOTSTRAP RESET */
 
 .nav-link {
-    color: #9094A2 !important;
+  color: #9094a2 !important;
 }
 
 .active {
-    color: #83D987 !important;
+  color: #83d987 !important;
 }
 
 .navbar {
-    background: #0F1837 !important;
+  background: #0f1837 !important;
 }
 
 /* BUTTON CUSTOM */
 
 .btn-custom {
-    background: #83D987;
-    border-radius: 4px;
-    padding: 10px 25px;
-    color: #132039;
+  background: #83d987;
+  border-radius: 4px;
+  padding: 10px 25px;
+  color: #132039;
 }
 
 .btn-custom .btn-custom-link {
-    color: #132039;
+  color: #132039;
 }
 
+/* MAIN */
+.main {
+  height: 100vh;
+}
+
+/* HERO SECTION */
+
+.hero__section {
+  background: #0f1837;
+  height: 100vh;
+  padding: 25vh 0 10vh 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 90px;
+}
+
+.hero-desc {
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: #9094a2;
+  line-height: 32px;
+  margin: 2rem 0;
+}
+
+.hero-decoration {
+  width: 100%;
+  height: 120vh;
+  position: absolute;
+  top: 0;
+  z-index; -100;
+}
+
+.hero-content {
+    z-index: 100;
+    position: relative;
+}
+
+.hero-girl-decoration {
+  width: 459px;
+  height: 500px;
+  position: absolute;
+  right: 5rem;
+  top: 9rem;
+}
+
+/* ABOUT SECTION */
+
+.about__section {
+  background: #F5F6F8;
+  padding: 15vh 0 15px 0;
+}
+
+.about-title {
+    font-weight: 500;
+    font-size: 32px;
+}
+
+.about-link {
+    color: #9094A2;
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.products-list {
+    
+}
+
+.product h1 {
+    color: #132039;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.product p {
+    color: #898889;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.product span {
+    color: #0A9F82;
+}
+
+.product {
+    width: 274px;
+}
+
+.product-img {
+    width: 274px;
+    height: 400px;
+}
+
+.product-img img {
+    width: 100%;
+}
