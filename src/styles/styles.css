@@ -28,6 +28,10 @@ a {
   background: #0f1837 !important;
 }
 
+.nav-link:hover {
+    color: #83d987 !important;
+}
+
 /* BUTTON CUSTOM */
 
 .btn-custom {
@@ -159,6 +163,13 @@ a {
     border-radius: 20px 0 20px 0;
 }
 
+/* CAROUSEL SECTION */
+.carousel__section {
+    margin-top: 5rem;
+}
+
+/* FOOTER */
+
 .footer {
     display: flex;
     justify-content: center;
@@ -169,4 +180,12 @@ a {
     background: #F5F6F8;
     padding: 3rem 0;
     margin-top: 5rem;
+}
+
+.carousel {
+    border-radius: 20px !important;
+}
+
+.carousel img {
+    border-radius: 20px !important;
 }
