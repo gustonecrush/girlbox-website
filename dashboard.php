@@ -1,11 +1,18 @@
 <?php
 
+// MEMULAI SESSION. AGAR DAPAT MENGGUNAKAN, MEMBUAT, ATAU MENGHAUNCURKAN SESSION
 session_start();
 
+// MELAKUKAN PENGECEKAN APAKAH TIDAK ADA SESSION LOGIN
 if (!isset($_SESSION['login'])) {
+
+    // JIKA TIDAK ADA, MAKA LEMPAR USER KE HALAMAN INDEX KARENA BELUM LOGIN
     header('Location: /web-girlbox/');
+
     exit();
+
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +96,7 @@ if (!isset($_SESSION['login'])) {
 
             <img src="src/assets/logo.svg" style="width: 50px; margin: 20px auto 0 auto;" />
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/web-girlbox/dashboard.php">
                 <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div> -->
@@ -114,15 +121,8 @@ if (!isset($_SESSION['login'])) {
                 Features
             </div>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" >
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Products</span>
-                </a>
-            </li>
-
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item" style="margin-top: -0.8rem;">
+            <li class="nav-item" style="margin-top: -.3rem;">
                 <a class="nav-link collapsed" href="#" >
                     <i class="fas fa-fw fa-cog"></i>
                     <span>My Cart</span>

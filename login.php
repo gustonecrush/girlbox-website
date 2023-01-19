@@ -53,7 +53,7 @@ if (isset($_POST['login'])) {
     }
 
     // JIKA USERNAME TIDAK DITEMUKAN, BUAT VARIABLE ERROR = TRUE
-    $error = true;
+    $errorLogin = true;
 }
 ?>
 
@@ -75,6 +75,26 @@ if (isset($_POST['login'])) {
 
   <body>
 
+    <?php 
+
+        // MELAKUKAN PENGECEKAN APAKAH ADA ERROR YANG DIBUAT APABILA LOGIN ERROR
+        if (isset($errorLogin)) {
+          // JIKA ADA BERARTI ADA KESALAHAN INPUT USERNAME / PASSWORD
+          // DAN TAMPILKAN PESAN BERIKUT JIKA USER GAGAL
+          echo "
+                          <script>
+                              Swal.fire({
+                                title: 'Login is failed',
+                                text: 'Username or Password is wrong!',
+                                icon: 'error',
+                                confirmButtonColor: '#1f1f1f'
+                              })
+                          </script>
+                      ";
+      } 
+    
+    ?>
+
     <div class="login-page">
 
       <div class="form width" data-aos="fade-up" data-aos-duration="1000">
@@ -90,12 +110,12 @@ if (isset($_POST['login'])) {
 
           <!-- ============== INPUT USERNAME ============== -->
           <div class="mb-3">
-            <input type="text" placeholder="username" name="username" class="form-control" />
+            <input type="text" placeholder="username" name="username" class="form-control" required />
           </div>
 
           <!-- ============== INPUT PASSWORD ============== -->
           <div class="mb-3">
-            <input type="password" placeholder="password" name="password" class="form-control" />
+            <input type="password" placeholder="password" name="password" class="form-control" required />
           </div>
 
           <!-- =============== BUTTON LOGIN =============== -->

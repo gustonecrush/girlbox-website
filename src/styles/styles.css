@@ -60,7 +60,7 @@ a:hover {
 .hero__section {
   background: #0f1837;
   height: 100vh;
-  padding: 20vh 0 10vh 0;
+  padding: 25vh 0 10vh 0;
   position: relative;
   overflow: hidden;
 }
@@ -98,14 +98,14 @@ a:hover {
   height: 500px;
   position: absolute;
   right: 5rem;
-  top: 6rem;
+  top: 8rem;
 }
 
 /* ABOUT SECTION */
 
 .about__section {
   background: #FFFF;
-  padding: 15vh 0 15px 0;
+  padding: 20vh 0 15px 0;
 }
 
 .about-title {
@@ -193,4 +193,23 @@ a:hover {
 
 .carousel img {
     border-radius: 20px !important;
+}
+
+.product-2 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center;
+  margin-bottom: -6.5rem;
+  margin-top: 4rem;
+}
+
+.section {
+  padding: 5.5rem 0 1rem;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 600;
 }

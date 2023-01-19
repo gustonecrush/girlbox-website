@@ -1,9 +1,7 @@
 <?php
 
 // MEMULAI SESSION. AGAR DAPAT MENGGUNAKAN, MEMBUAT, ATAU MENGHAUNCURKAN SESSION
-session_start(); 
-
-?>
+session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,14 +18,11 @@ session_start();
   
   <body>
 
-    <?php 
-
-      // MELAKUKAN PENGECEKAN APAKAH ADA SESSION LOGOUT
-      if (isset($_SESSION['logoutIsSuccess'])) {
-
-          // JIKA ADA BERARTI USER LOGOUT
-          // DAN TAMPILKAN PESAN BERIKUT JIKA USER BERHASIL LOGIN
-          echo "
+    <?php // MELAKUKAN PENGECEKAN APAKAH ADA SESSION LOGOUT
+    if (isset($_SESSION['logoutIsSuccess'])) {
+        // JIKA ADA BERARTI USER LOGOUT
+        // DAN TAMPILKAN PESAN BERIKUT JIKA USER BERHASIL LOGIN
+        echo "
             <script>
                 Swal.fire({
                   title: 'Logout is success',
@@ -38,15 +33,13 @@ session_start();
             </script>
             ";
 
-            // HAPUS SESSION LOGOUT
-            $_SESSION['logoutIsSuccess'] = false;
-            $_SESSION = [];
+        // HAPUS SESSION LOGOUT
+        $_SESSION['logoutIsSuccess'] = false;
+        $_SESSION = [];
 
-            // HANCURKAN SESSION
-            session_destroy();
-      } 
-    
-    ?>
+        // HANCURKAN SESSION
+        session_destroy();
+    } ?>
 
       <!-- =========== IMPORT SECTION NAVBAR =========== -->
       <?php include_once 'sections/navbar.php'; ?>
@@ -322,6 +315,29 @@ session_start();
 
       <!-- =========== IMPORT SECTION SCRIPTS ========== -->
       <?php include 'sections/scripts.php'; ?>
+
+      <?php // MELAKUKAN PENGECEKAN APAKAH ADA ERROR YANG DIBUAT APABILA REGISTER ERROR
+      if (isset($_SESSION['registerError'])) {
+          // JIKA ADA BERARTI ADA KESALAHAN PADA SAAT PROSES REGISTRASI
+          // DAN TAMPILKAN PESAN BERIKUT JIKA USER GAGAL
+          echo "
+                          <script>
+                              Swal.fire({
+                                title: 'Register is failed',
+                                text: 'Username or Email has been taken!',
+                                icon: 'error',
+                                confirmButtonColor: '#1f1f1f'
+                              })
+                          </script>
+                      ";
+
+          // HAPUS SESSION LOGOUT
+          $_SESSION['registerError'] = false;
+          $_SESSION = [];
+
+          // HANCURKAN SESSION
+          session_destroy();
+      } ?>
 
   </body>
   

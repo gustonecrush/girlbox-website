@@ -2,7 +2,7 @@
 
 // MELAKUKAN KONEKSI KE DATABASE
 // DENGAN MENGGUNAKAN FUNGSI mysqli_connect(localhost, usernameDB, passwordDB, namaDB)
-$conn = mysqli_connect('localhost', 'root', 'root', 'db_girlbox');
+$conn = mysqli_connect('localhost', 'root', '', 'db_girlbox');
 
 // FUNGSI YANG DIGUNAKAN UNTUK MELAKUKAN REGISTRASI
 function registrasi($data)
