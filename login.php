@@ -1,127 +1,128 @@
 <?php
 
+// MEMULAI SESSION. AGAR DAPAT MENGGUNAKAN, MEMBUAT, ATAU MENGHAUNCURKAN SESSION
 session_start();
 
+// MELAKUKAN PENGECEKAN APAKAH ADA SESSION LOGIN
+if (isset($_SESSION['login'])) {
+    // JIKA ADA, MAKA LEMPAR USER KE HALAMAN DASHBOARD KARENA SUDAH LOGIN
+    header('Location: /web-girlbox/dashboard.php');
+
+    exit();
+}
+
+// IMPORT FILE FUNCTIONS, UNTUK CONNECT KE DATABASE, KARENA
+// KONFIGURASI DATABASE TERDAPAT DI FILE TERSEBUT
 require 'functions.php';
 
+// JIKA TOMBOL LOGIN DITEKAN, EKSEKUSI PROGRAM BERIKUT
 if (isset($_POST['login'])) {
+    // MENGAMBIL DATA USERNAME & PASSWORD DARI INPUT USER
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // cek apakah ada username di database
+    // MELAKUKAN QUERY KE DATABASE UNTUK MENCARI USERNAME, SESUAI DENGAN INPUT USER
     $result = mysqli_query(
         $conn,
         "SELECT * FROM users WHERE username = '$username'"
     );
 
+    // MELAKUKAN PENGKONDISIAN APAKAH QUERY YANG DILAKUKAN, MENGHASILKAN
+    // BARIS = 1 YANG ARTINYA TERDAPAT USERNAME YANG DIMASUKKAN OLEH USER DI DATABASE
     if (mysqli_num_rows($result) === 1) {
-        // kalo ada usernamenya, cek password
-        // ambil data password di database
+        // JIKA ADA USERNAMENYA, QUERY DATA PASSWORD
+        // DARI QUERY $RESULT DIATAS
         $passwordInDb = mysqli_fetch_assoc($result);
 
+        // MELAKUKAN PENGECEKAN APAKAH PASSWORD INPUT USER
+        // SAMA DENGAN PASSWORD DARI QUERY $RESULT YANG SEBELUMNYA
+        // DILAKUKAN PENGECEKAN USERNAME
         if (password_verify($password, $passwordInDb['password'])) {
-            // set session
+            // JIKA ADA, BUAT VARIABEL SESSION SEBAGAI BERIKUT
+            // GUNANYA UNTUK MELAKUKAN PENGECEKAN DISETIAP HALAMAN
+            // SUDAH LOGIN / BELUM
             $_SESSION['login'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['loginIsSuccess'] = true;
 
+            // APABILA USERNAME & PASSWORD BENAR, LEMPAR USER KE HALAMAN DASHBOARD (HALAMAN BERHASIL)
             header('Location: /web-girlbox/dashboard.php');
+
             exit();
         }
     }
 
+    // JIKA USERNAME TIDAK DITEMUKAN, BUAT VARIABLE ERROR = TRUE
     $error = true;
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <!-- ====================== META TAGS ====================== -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- ====================== BOOTSTRAP CSS ====================== -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- =========== IMPORT COMPONENT HEAD =========== -->
+    <?php include_once 'sections/head.php'; ?>
 
-    <!-- ====================== ICON ====================== -->
-    <link href="src/assets/logo.svg" rel="icon" />
-
-    <!-- ====================== CSS ====================== -->
-    <link href="src/styles/styles.css" rel="stylesheet" />
+    <!-- =================== CSS ===================== -->
     <link href="src/styles/login.css" rel="stylesheet" />
 
-    <!-- ====================== SWEETALERT ====================== -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- ====================== TITLE ====================== -->
+    <!-- ================== TITLE ==================== -->
     <title>Log In</title>
+
   </head>
+
   <body>
+
     <div class="login-page">
+
       <div class="form width" data-aos="fade-up" data-aos-duration="1000">
+
+        <!-- =========== FORM LOGIN =========== -->
         <form class="login-form" action="" method="POST" autocomplete="off">
+
+          <!-- ============== LOGO ============== -->
           <img src="src/assets/logo.svg" alt="logo" class="logo-login" />
+
+          <!-- ============= HEADER ============= -->
           <h1 class="login-title">Log In</h1>
+
+          <!-- ============== INPUT USERNAME ============== -->
           <div class="mb-3">
-            <input
-              type="text"
-              placeholder="username"
-              name="username"
-              class="form-control"
-            />
+            <input type="text" placeholder="username" name="username" class="form-control" />
           </div>
+
+          <!-- ============== INPUT PASSWORD ============== -->
           <div class="mb-3">
-            <input
-              type="password"
-              placeholder="password"
-              name="password"
-              class="form-control"
-            />
+            <input type="password" placeholder="password" name="password" class="form-control" />
           </div>
+
+          <!-- =============== BUTTON LOGIN =============== -->
           <button type="submit" name="login">login</button>
+
+          <!-- =============== LINK REGISTER ============== -->
           <p class="message">
             Not registered?
-            <a
-              style="cursor: pointer;"
-              href="/web-girlbox/register.php"
-            >
-              Create an account
-            </a>
+            <a style="cursor: pointer;" href="/web-girlbox/register.php">Create an account</a>
           </p>
+
         </form>
+
       </div>
+
     </div>
 
+    <!-- =============== IMAGE DECORATION ============== -->
     <img
       src="src/assets/union_decoration.png"
       alt="decoration"
       class="hero-decoration"
     />
 
-    <!-- ====================== BOOTSTRAP JS ====================== -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-      crossorigin="anonymous"
-    ></script>
+    <!-- =========== IMPORT SECTION SCRIPTS ========== -->
+    <?php include 'sections/scripts.php'; ?>
 
-    <!-- ====================== AOS JS ====================== -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- ====================== INTERNAL JS ====================== -->
-    <script>
-      AOS.init()
-    </script>
   </body>
+
 </html>

@@ -101,7 +101,7 @@ if (!isset($_SESSION['login'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/web-olshop/index.php">
+                <a class="nav-link" href="/web-girlbox/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Homepage</span></a>
             </li>
